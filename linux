@@ -36,21 +36,21 @@ fancy_echo "Installing base ruby build dependencies ..."
 fancy_echo "Installing libraries for common gem dependencies ..."
   successfully sudo aptitude install -y libxslt1-dev libcurl4-openssl-dev libksba8 libksba-dev libqtwebkit-dev
 
-fancy_echo "Installing Postgres, a good open source relational database ..."
-  successfully sudo aptitude install -y postgresql postgresql-server-dev-all
+#fancy_echo "Installing Postgres, a good open source relational database ..."
+#  successfully sudo aptitude install -y postgresql postgresql-server-dev-all
 
-fancy_echo "Installing Redis, a good key-value database ..."
-  successfully sudo aptitude install -y redis-server
+#fancy_echo "Installing Redis, a good key-value database ..."
+#  successfully sudo aptitude install -y redis-server
 
-fancy_echo "Installing The Silver Searcher (better than ack or grep) to search the contents of files ..."
-  successfully git clone git://github.com/ggreer/the_silver_searcher.git /tmp/the_silver_searcher
-  successfully sudo aptitude install -y automake pkg-config libpcre3-dev zlib1g-dev
-  successfully sh /tmp/the_silver_searcher/build.sh
-  successfully cd /tmp/the_silver_searcher
-  successfully sh build.sh
-  successfully sudo make install
-  successfully cd ~
-  successfully rm -rf /tmp/the_silver_searcher
+#fancy_echo "Installing The Silver Searcher (better than ack or grep) to search the contents of files ..."
+#  successfully git clone git://github.com/ggreer/the_silver_searcher.git /tmp/the_silver_searcher
+#  successfully sudo aptitude install -y automake pkg-config libpcre3-dev zlib1g-dev
+#  successfully sh /tmp/the_silver_searcher/build.sh
+#  successfully cd /tmp/the_silver_searcher
+#  successfully sh build.sh
+#  successfully sudo make install
+#  successfully cd ~
+#  successfully rm -rf /tmp/the_silver_searcher
 
 fancy_echo "Installing ctags, to index files for vim tab completion of methods, classes, variables ..."
   successfully sudo aptitude install -y exuberant-ctags
@@ -61,8 +61,8 @@ fancy_echo "Installing vim ..."
 fancy_echo "Installing tmux, to save project state and switch between projects ..."
   successfully sudo aptitude install -y tmux
 
-fancy_echo "Installing ImageMagick, to crop and resize images ..."
-  successfully sudo aptitude install -y imagemagick
+#fancy_echo "Installing ImageMagick, to crop and resize images ..."
+#  successfully sudo aptitude install -y imagemagick
 
 fancy_echo "Installing watch, to execute a program periodically and show the output ..."
   successfully sudo aptitude install -y watch
@@ -94,19 +94,22 @@ fancy_echo "Setting Ruby 1.9.3-p392 as global default Ruby ..."
 fancy_echo "Updating to latest Rubygems version ..."
   successfully gem update --system
 
-fancy_echo "Installing critical Ruby gems for Rails development ..."
-  successfully gem install bundler foreman pg rails thin --no-document
+#fancy_echo "Installing critical Ruby gems for Rails development ..."
+#  successfully gem install bundler foreman pg rails thin --no-document
+
+fancy_echo "Installing Bundler && Foreman ..."
+  successfully gem install bundler foreman --no-document
 
 fancy_echo "Installing GitHub CLI client ..."
   successfully gem install hub --no-document
 
-fancy_echo "Installing Heroku CLI client ..."
-  successfully wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+#fancy_echo "Installing Heroku CLI client ..."
+#  successfully wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
 
-fancy_echo "Installing the heroku-config plugin to pull config variables locally to be used as ENV variables ..."
-  successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
+#fancy_echo "Installing the heroku-config plugin to pull config variables #locally to be used as ENV variables ..."
+#  successfully heroku plugins:install git://github.com/ddollar/heroku-config.git
 
-if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
-  fancy_echo "Prepare ~/.zshrc for http://github.com/thoughtbot/dotfiles ..."
-  successfully echo "# DO NOT EDIT BELOW THIS LINE\n" >> ~/.zshrc
-fi
+#if ! grep -qs "DO NOT EDIT BELOW THIS LINE" ~/.zshrc; then
+#  fancy_echo "Prepare ~/.zshrc for http://github.com/thoughtbot/dotfiles ..."
+#  successfully echo "# DO NOT EDIT BELOW THIS LINE\n" >> ~/.zshrc
+#fi
